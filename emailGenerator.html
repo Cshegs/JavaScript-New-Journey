@@ -11,6 +11,7 @@
             document.getElementById("email").value = form.elements["first"].value + "." + form.elements["last"].value + "@student.aul.edu.ng";
             form.reset();
             form.elements["first"].focus();
+            form.elements['last'].disabled = true;
         } // end generateEmail
     </script>
 </head>
@@ -21,10 +22,10 @@
 
     <form action="">
         First Name:
-        <input type="text" id="first" name="first" size="15" autofocus autocomplete="cc-name">
+        <input type="text" id="first" name="first" size="15" autofocus onchange = "this.form.elements['last'].disabled=false">
         <br>
         Last Name:
-        <input type="text" id="last" name="last" size="15">
+        <input type="text" id="last" name="last" size="15" disabled>
         <br><br>
         <button type="button" onclick="generateEmail(this.form);">Generate Email</button>
         <br><br>
